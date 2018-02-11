@@ -1,11 +1,26 @@
 node {
     def app
+
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
         checkout scm
     }
 
-    stage('First try of step') {
-        sh 'echo "Hello jenkins"'
+    stage('Build image') {
+        ansiColor('xterm') {
+            dir("${env.WORKSPACE}") {
+                app = docker.build("demo-nodeapp")
+            }
+        }
+    }    
+
+    stage('Test image') {
+        /* Ideally, we would run a test framework against our image.
+         * For this example, we're using a Volkswagen-type approach ;-) */
+
+        app.inside {
+            sh 'echo "Tests passed"'
+        }
     }
+
 }
