@@ -3,14 +3,17 @@ node {
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-
         checkout scm
     }
 
+    stage('First try of step') {
+        sh 'echo "Hello jenkins"'
+    }
+
+/*
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
         app = docker.build("getintodevops/hellonode")
     }
 
@@ -33,4 +36,5 @@ node {
             app.push("latest")
         }
     }
+*/
 }
