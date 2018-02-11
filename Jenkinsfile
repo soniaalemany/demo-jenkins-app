@@ -17,9 +17,10 @@ node {
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-
-        app.inside {
-            sh 'echo "Tests passed"'
+        ansiColor('xterm') {
+            app.inside("-u root:root --shm-size='512m'") {
+                sh 'echo "Tests passed"'
+            }
         }
     }
 
