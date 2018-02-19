@@ -5,6 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "node test.js",
+    "testCore": "node test-core.js",
+    "testUnit": "node test-unit.js",
     "start": "node main.js"
   },   
   "author": "jmmerino@gmail.com",  
