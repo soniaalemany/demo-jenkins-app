@@ -65,7 +65,7 @@ node {
                         }
                     }, TestCore: {
                        stage('Suite Core') {
-                            sh 'cd /usr/src/app && npm testCore'                                                        
+                            sh 'cd /usr/src/app && npm run testCore'                                                        
                        }
                     }
 
@@ -76,7 +76,7 @@ node {
 
                 try {                    
                     stage('Suite Unit') {
-                        sh 'cd /usr/src/app && npm testUnit'
+                        sh 'cd /usr/src/app && npm run testUnit'
                     }                    
                     secondRound = true
                 } catch (error) {
